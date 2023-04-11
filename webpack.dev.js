@@ -54,7 +54,7 @@ module.exports = merge(common, {
     historyApiFallback: true,
     open: true,
   },
-  stats: 'minimal',
+  stats: false,
   plugins: [
     new ReactRefreshWebpackPlugin(),
     new FriendlyErrorsWebpackPlugin(),
