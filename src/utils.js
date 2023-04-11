@@ -1,5 +1,4 @@
-import React from "react";
-import namor from "namor";
+import namor from 'namor';
 
 const range = (len) => {
   const arr = [];
@@ -19,10 +18,10 @@ const newPerson = () => {
     progress: Math.floor(Math.random() * 100),
     status:
       statusChance > 0.66
-        ? "relationship"
+        ? 'relationship'
         : statusChance > 0.33
-        ? "complicated"
-        : "single",
+        ? 'complicated'
+        : 'single',
   };
 };
 
@@ -34,9 +33,3 @@ export function makeData(len = 5553) {
     };
   });
 }
-
-export const Tips = () => (
-  <div style={{ textAlign: "center" }}>
-    <em>Tip: Hold shift when sorting to multi-sort!</em>
-  </div>
-);
