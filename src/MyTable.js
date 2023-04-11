@@ -1,16 +1,16 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import Table from "react-table";
-import selectTableHOC from "react-table/lib/hoc/selectTable";
+import 'react-table/react-table.css';
+import './styles.css';
 
-import "react-table/react-table.css";
-import "./styles.css";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import Table from 'react-table';
+import selectTableHOC from 'react-table/lib/hoc/selectTable';
 
 const SelectTable = selectTableHOC(Table);
 
 class MyTable extends Component {
   static defaultProps = {
-    keyField: "id",
+    keyField: 'id',
   };
 
   static propTypes = {
@@ -22,7 +22,8 @@ class MyTable extends Component {
    */
   toggleSelection = (key, shift, row) => {
     // start off with the existing state
-    let selection = [...this.state.selection];
+    const { selection: old } = this.state;
+    let selection = [...old];
     const keyIndex = selection.indexOf(key);
 
     // check to see if the key exists
@@ -45,7 +46,8 @@ class MyTable extends Component {
    */
   toggleAll = () => {
     const { keyField } = this.props;
-    const selectAll = !this.state.selectAll;
+    const { selectAll: old } = this.state;
+    const selectAll = !old;
     const selection = [];
 
     if (selectAll) {
@@ -73,7 +75,7 @@ class MyTable extends Component {
 
     return {
       onClick: (e, handleOriginal) => {
-        console.log("It was in this row:", rowInfo);
+        console.log('It was in this row:', rowInfo);
 
         // IMPORTANT! React-Table uses onClick internally to trigger
         // events like expanding SubComponents and pivots.
@@ -88,7 +90,7 @@ class MyTable extends Component {
         background:
           rowInfo &&
           selection.includes(`select-${rowInfo.original.id}`) &&
-          "lightgreen",
+          'lightgreen',
       },
     };
   };
@@ -102,13 +104,13 @@ class MyTable extends Component {
     return (
       <SelectTable
         {...this.props}
+        getTrProps={this.rowFn}
+        isSelected={this.isSelected}
         ref={(r) => (this.checkboxTable = r)}
-        toggleSelection={this.toggleSelection}
         selectAll={this.state.selectAll}
         selectType="checkbox"
         toggleAll={this.toggleAll}
-        isSelected={this.isSelected}
-        getTrProps={this.rowFn}
+        toggleSelection={this.toggleSelection}
       />
     );
   }
