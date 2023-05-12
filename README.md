@@ -1,8 +1,6 @@
-# test-app
+## React-table 6 : Select Table HOC Example
 
-Empty project.
-
-## Building and running on localhost
+### Building and running on localhost
 
 First install dependencies:
 
@@ -13,19 +11,15 @@ npm install
 To create a production build:
 
 ```sh
-npm run build-prod
+npm run build
 ```
 
-To create a development build:
+To start a development server:
 
 ```sh
-npm run build-dev
+npm start
 ```
 
-## Running
+### Credits
 
-Open the file `dist/index.html` in your browser
-
-## Credits
-
-Made with [createapp.dev](https://createapp.dev/)
+Made with TanStack [React Table v6](https://github.com/TanStack/table/tree/v6)
