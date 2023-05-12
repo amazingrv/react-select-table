@@ -19,7 +19,7 @@
     "moment": "^2.29.4",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-table": "^6.11.5",
+    "react-table": "^7.8.0",
     "regenerator-runtime": "^0.13.11",
     "rosie": "^2.1.0"
   },
